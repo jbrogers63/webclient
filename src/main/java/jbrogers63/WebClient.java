@@ -16,34 +16,37 @@ public class WebClient {
 		this.client = HttpClient.newHttpClient();
 	}
 
-	public String get(String url, Map<String, String> headers) throws IOException, InterruptedException {
+	public HttpResponse<String> get(String url, Map<String, String> headers)
+			throws IOException, InterruptedException {
 		return sendWithBody(url, "", headers, "GET");
 	}
 
-	public String post(String url, String json, Map<String, String> headers)
+	public HttpResponse<String> post(String url, String json, Map<String, String> headers)
 			throws IOException, InterruptedException {
 		return sendWithBody(url, json, headers, "POST");
 	}
 
-	public String patch(String url, String json, Map<String, String> headers)
+	public HttpResponse<String> patch(String url, String json, Map<String, String> headers)
 			throws IOException, InterruptedException {
 		return sendWithBody(url, json, headers, "PATCH");
 	}
 
-	public String put(String url, String json, Map<String, String> headers)
+	public HttpResponse<String> put(String url, String json, Map<String, String> headers)
 			throws IOException, InterruptedException {
 		return sendWithBody(url, json, headers, "PUT");
 	}
 
-	public String delete(String url, Map<String, String> headers) throws IOException, InterruptedException {
+	public HttpResponse<String> delete(String url, Map<String, String> headers)
+			throws IOException, InterruptedException {
 		return sendWithBody(url, "", headers, "DELETE");
 	}
 
-	public String options(String url, Map<String, String> headers) throws IOException, InterruptedException {
+	public HttpResponse<String> options(String url, Map<String, String> headers)
+			throws IOException, InterruptedException {
 		return sendWithBody(url, "", headers, "OPTIONS");
 	}
 
-	private String sendWithBody(String url, String body, Map<String, String> headers, String method)
+	private HttpResponse<String> sendWithBody(String url, String body, Map<String, String> headers, String method)
 			throws IOException, InterruptedException {
 		HttpRequest.Builder builder = HttpRequest.newBuilder()
 				.uri(URI.create(url));
@@ -62,9 +65,9 @@ public class WebClient {
 		return sendRequest(request);
 	}
 
-	private String sendRequest(HttpRequest request) throws IOException, InterruptedException {
+	private HttpResponse<String> sendRequest(HttpRequest request) throws IOException, InterruptedException {
 		HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-		return response.body();
+		return response;
 	}
 
 }

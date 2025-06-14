@@ -1,5 +1,6 @@
 package jbrogers63;
 
+import java.net.http.HttpResponse;
 import java.util.Map;
 
 import org.junit.jupiter.api.AfterEach;
@@ -42,9 +43,10 @@ public class WebClientTest {
 	public void testPlainTextGetRequests() throws Exception {
 		String url = server.url("/good").toString();
 		WebClient client = new WebClient();
-		String result = client.get(url, Map.of());
+		HttpResponse<String> result = client.get(url, Map.of("Content-Type", "plain/text"));
 
-		Assertions.assertEquals("OK", result, "The response body did not match.");
+		Assertions.assertEquals("OK", result.body(), "The response body did not match.");
+		Assertions.assertEquals(200, result.statusCode(), "The response status code did not match.");
 	}
 
 	private MockResponse getMockResponse(String body, int responseCode, Map<String, String> headers) {
