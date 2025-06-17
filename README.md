@@ -24,7 +24,7 @@ This may eventually be release on Maven Central or released as an artifact on Gi
 - [Maven](https://maven.apache.org/)
 - [Git](https://git-scm.com/)
 
-1. CLone the repo locally:
+1. Clone the repo locally:
 
 ```
 git clone https://github.com/jbrogers63/webclient
