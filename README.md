@@ -37,7 +37,7 @@ mvn clean install
 ```
 
 3. Add dependency to your project's pom.xml:
-```
+```xml
 <dependency>
   <groupId>jbrogers63</groupId>
   <artifactId>webclient</artifactId>
@@ -49,7 +49,7 @@ mvn clean install
 ## Usage
 
 Basic Usage:
-```
+```java
 import jbrogers63.WebClient;
 import java.net.http.HttpResponse;
 import java.util.Map;
@@ -66,7 +66,7 @@ public class MyWebClient {
 ```
 
 Make a JSON request:
-```
+```java
 import jbrogers63.WebClient;
 import jbrogers63.Headers;
 import jbrogers63.MediaTypes;
