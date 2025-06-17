@@ -16,7 +16,7 @@ A simple Java based web client, using the standard library (JDK/JRE).
 
 ## Installation
 
-This may eventually be release on Maven Central or released as an artifact on GitHub. For now, clone the repo and build locally.
+This may eventually be released on Maven Central or released as an artifact on GitHub. For now, clone the repo and build locally.
 
 ### Prequisites
 
