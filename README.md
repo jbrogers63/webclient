@@ -93,6 +93,24 @@ public class MyWebClient {
 }
 ```
 
+All HTTP methods...:
+```java
+String url = "https://dummyjson.com/todos"
+Map<String, String> headers = Map.of(
+    "Content-Type", "application/json",
+    "Accept", "application/json"
+);
+
+HttpResponse<String> response = null;
+
+response = client.get(url, headers); // get all todos
+response = client.post(url, "{ \"todo\": \"new todo from WebClient\", \"completed\": false, \"userId\": 1 }", headers); // create a new todo
+response = client.patch(url, "{ \"id\": 1, \"completed\": true }", headers); // update an exiting todo
+response = client.put(url, "{ \"id\": 1, \"todo\": \"replace the first todo with this\", \"completed\": false, \"userId\": 1 }", headers); // fully replace an existing todo
+response = client.delete(url = "/1", headers); // delete a todo
+response = client.options(url, Map.of()); // get URL options
+```
+
 
 ## License
 
