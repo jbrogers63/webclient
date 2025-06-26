@@ -10,7 +10,7 @@ A simple Java based web client, using the standard library (JDK/JRE).
 
 ## Features
 
-- Uses on the Java standard library, no external dependencies
+- Uses the Java standard library, no external dependencies
 - Simple to use
 - Lightweight
 
